@@ -50,15 +50,33 @@ public class MoodAnalyserTest {
 	 * @method givenNullMassageShouldReturnHappyMessage is to test if users given any others or null mood.
 	 * @Test if User Provides Invalid Mood, like Null
 	 * @return Happy
+	 * @throws MoodAnalysisException 
 	 */
 	
 	@Test
-	public void givenNullMassageShouldReturnHappyMessage() {
-	    MoodAnalyser MoodAnalyserTest = new MoodAnalyser(null);
+	public void givenNullMassageShouldReturnHappyMessage() throws MoodAnalysisException {
+		MoodAnalyser MoodAnalyserTest = new MoodAnalyser(null);
 	    String mood = MoodAnalyserTest.exceptionAnalyseMood();
 	    Assert.assertEquals("HAPPY",mood);
 
 	}
-}	
+	
 
+    @Test
+    public void givenEmptyMessageShouldReturnThrowCustomException() 
+    {
+    	MoodAnalyser moodAnalyzer = new MoodAnalyser(" ");
+        try 
+        {
+        	MoodAnalyserTest.analyseMood(" ");
+        } 
+        catch (MoodAnalysisException e) 
+        {
+            Assert.assertEquals(MoodAnalysisException.ExceptionType.ENTERED_EMPTY, e.getMessage());
+            System.out.println(e.type);
+            System.out.print(e.getMessage());
 
+        }
+    }
+
+}

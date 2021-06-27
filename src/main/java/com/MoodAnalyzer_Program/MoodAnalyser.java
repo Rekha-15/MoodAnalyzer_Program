@@ -1,6 +1,5 @@
 /***************************************************************
  *@purpose Implementing Mood Analyzer Problem.
- *ability to analyse and respond Happy or Sad Mood.
  *@author Rekha
  *@version 1.0
  *@since 18-06-2021
@@ -50,13 +49,17 @@ public class MoodAnalyser {
 	 * if contain happy then return happy if contain null then also return happy
 	 * 
 	 * @return string value
+	 * @throws MoodAnalysisException 
 	 */
-	public String exceptionAnalyseMood() {
+	public String exceptionAnalyseMood() throws MoodAnalysisException {
 		try {
+			if (message.length() == 0)
+                throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.ENTERED_EMPTY,"please enter proper message");
 			if (message.contains("sad"))
 				return "SAD";
 			return "HAPPY";
-		} catch (NullPointerException e) {
+		} 
+		catch (NullPointerException e) {
 			return "HAPPY";
 		}
 	}
