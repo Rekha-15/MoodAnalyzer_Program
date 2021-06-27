@@ -45,4 +45,20 @@ public class MoodAnalyserTest {
 		String mood = MoodAnalyserTest.analyseMood("Hello i am Happy");
 		Assert.assertEquals("HAPPY", mood);
 	}
-}
+	
+	/**
+	 * @method givenNullMassageShouldReturnHappyMessage is to test if users given any others or null mood.
+	 * @Test if User Provides Invalid Mood, like Null
+	 * @return Happy
+	 */
+	
+	@Test
+	public void givenNullMassageShouldReturnHappyMessage() {
+	    MoodAnalyser MoodAnalyserTest = new MoodAnalyser(null);
+	    String mood = MoodAnalyserTest.exceptionAnalyseMood();
+	    Assert.assertEquals("HAPPY",mood);
+
+	}
+}	
+
+

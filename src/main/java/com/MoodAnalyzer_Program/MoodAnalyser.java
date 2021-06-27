@@ -9,22 +9,55 @@
 package com.MoodAnalyzer_Program;
 
 /**
- * MoodAnalyser is a class of public type.
- * In this class we are just analyzing weather user mood is sad or happy.
- *
+ * MoodAnalyser is a class of public type. In this class, 
+ * Handling Exception if User Provides Invalid Mood, like Null
  */
-public class MoodAnalyser { 
+public class MoodAnalyser {
 
-	     /**
-		 * analyseMood is a method to check if sad message
-		 * then contain sad if happy then return happy
-		 * @param message
-		 * @return string value
-		 */
-	
-		public String analyseMood(String message) {
-	        if(message.contains("Sad"))
-	            return "SAD";
-	        return "HAPPY";
-	    }
+	public String message;
+
+	/**
+	 * analyseMood is a method to check if sad message then return sad .
+	 * if happy message then return happy
+	 * 
+	 * @param message
+	 * @return string value
+	 */
+	public String analyseMood(String message) {
+		if (message.contains("Sad"))
+			return "SAD";
+		return "HAPPY";
+	}
+
+	/**
+	 * Parameterized constructor of the class
+	 * 
+	 * @param message
+	 */
+	public MoodAnalyser(String message) {
+		this.message = message;
+	}
+
+	/**
+	 * Default constructor
+	 */
+	public MoodAnalyser() {
+		this.message = message;
+	}
+
+	/**
+	 * exceptionAnalyseMood is a function check if message contain sad then return sad. 
+	 * if contain happy then return happy if contain null then also return happy
+	 * 
+	 * @return string value
+	 */
+	public String exceptionAnalyseMood() {
+		try {
+			if (message.contains("sad"))
+				return "SAD";
+			return "HAPPY";
+		} catch (NullPointerException e) {
+			return "HAPPY";
+		}
+	}
 }
