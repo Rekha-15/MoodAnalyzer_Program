@@ -13,13 +13,8 @@ package com.MoodAnalyzer_Program;
  * In this class we are just analyzing weather user mood is sad or happy.
  *
  */
-public class MoodAnalyser {
-	
-	public static void main(String[] args) {
-		
-		System.out.println("Welcome to Mood Analyzer Program");
-	}
-         
+public class MoodAnalyser { 
+
 	     /**
 		 * analyseMood is a method to check if sad message
 		 * then contain sad if happy then return happy
